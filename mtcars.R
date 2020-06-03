@@ -1,7 +1,7 @@
 setwd("/home/moraesjeremias/Documents/projects/github/users/moraesjeremias/mtcars/")
 getwd()
 
-# install.packages("ggplot2")
+# install.packages("ggplot2") - instalação do pacote ggplot2
 library(ggplot2)
 
 mtcars_dataset = mtcars
@@ -30,15 +30,14 @@ print("am - Transmissão")
 print("gear - Número de marchas")
 print("carb - Número de carburadores")
 
-# Média da massa dos carros - (1000 libras)
-mean(mtcars_dataset$wt)
+# Média da massa dos carros - (3217 libras)
+mean(mtcars_dataset$wt)*1000
 
-# Média do consumo e gasolina - 20.9 milhas/galão
-mean(mtcars_dataset$mpg)
+# Média do consumo e gasolina - 20.09 milhas/galão
+format(round((mean(mtcars_dataset$mpg)),2), nsmall=2)
 
-# barplot(mtcars_dataset$cyl, names.arg = mtcars_dataset$names, horiz = TRUE, angle = 90,col = rainbow(32), main = "Número de Cilindradas por Veículo", xlab = "Veículos", ylab = "Número de cilindradas")
 
 # Bar plot com a dependência ggplot2
 ggplot(data = mtcars_dataset) + 
   geom_bar(aes(x = cyl, y = reorder(names, -cyl)), stat = "identity", fill="#FF5100") + 
-    ylab("Veículos") + xlab("Cilintradas") + ggtitle("Número de Cilindradas por Veículo") + theme(plot.title = element_text(hjust = 0.5))
+    ylab("Veículos") + xlab("Número de cilindros") + ggtitle("Número de Cilindros por Veículo") + theme(plot.title = element_text(hjust = 0.5))
