@@ -11,10 +11,13 @@ print(mtcars_dataset$names)
 # Somente para visualização do data frame
 print(mtcars_dataset)
 
-
+# Número de Instâncias - 32
 print(length(mtcars$mpg))
+
+# Número de Colunas no data frame - 11
 print(length(mtcars))
 
+# Classificações das colunas
 print("mpg - Milhas/galão (Consumo de gasolina)")
 print("cyl - Número de cilindros")
 print("disp - Cilindradas")
@@ -27,12 +30,15 @@ print("am - Transmissão")
 print("gear - Número de marchas")
 print("carb - Número de carburadores")
 
-
+# Média da massa dos carros - (1000 libras)
 mean(mtcars_dataset$wt)
+
+# Média do consumo e gasolina - 20.9 milhas/galão
 mean(mtcars_dataset$mpg)
 
 # barplot(mtcars_dataset$cyl, names.arg = mtcars_dataset$names, horiz = TRUE, angle = 90,col = rainbow(32), main = "Número de Cilindradas por Veículo", xlab = "Veículos", ylab = "Número de cilindradas")
 
+# Bar plot com a dependência ggplot2
 ggplot(data = mtcars_dataset) + 
   geom_bar(aes(x = cyl, y = reorder(names, -cyl)), stat = "identity", fill="#FF5100") + 
     ylab("Veículos") + xlab("Cilintradas") + ggtitle("Número de Cilindradas por Veículo") + theme(plot.title = element_text(hjust = 0.5))
